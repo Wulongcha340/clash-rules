@@ -44,6 +44,7 @@ payload:
   # ============================================
   # 阿里系（使用 SUFFIX 避免误伤国际站点如 alibabacloud.com）
   # ============================================
+  - DOMAIN-KEYWORD,qoder
   - DOMAIN-SUFFIX,taobao.com
   - DOMAIN-SUFFIX,tmall.com
   - DOMAIN-SUFFIX,alipay.com

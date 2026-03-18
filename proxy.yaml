@@ -1,0 +1,143 @@
+# 代理规则集
+# 常见需要代理的网站和服务
+# 注意：MATCH 兜底规则只能放在主配置 rules 最后一条
+
+payload:
+  # === Apple 地区限制服务 ===
+  - DOMAIN-SUFFIX,apple.news
+  - DOMAIN-SUFFIX,news.apple.com
+  - DOMAIN-SUFFIX,tv.apple.com
+
+  # === Google 服务 ===
+  - DOMAIN-KEYWORD,google
+  - DOMAIN-SUFFIX,gstatic.com
+  - DOMAIN-SUFFIX,ggpht.com
+  - DOMAIN-SUFFIX,gvt1.com
+  - DOMAIN-SUFFIX,gvt2.com
+  - DOMAIN-SUFFIX,gvt3.com
+
+  # === YouTube ===
+  - DOMAIN-KEYWORD,youtube
+  - DOMAIN-SUFFIX,youtu.be
+  - DOMAIN-SUFFIX,ytimg.com
+  - DOMAIN-SUFFIX,yt.be
+
+  # === GitHub ===
+  - DOMAIN-SUFFIX,github.com
+  - DOMAIN-SUFFIX,github.io
+  - DOMAIN-SUFFIX,githubusercontent.com
+  - DOMAIN-SUFFIX,githubassets.com
+  - DOMAIN-SUFFIX,ghcr.io
+
+  # === Twitter / X ===
+  - DOMAIN-KEYWORD,twitter
+  - DOMAIN-SUFFIX,x.com
+  - DOMAIN-SUFFIX,twimg.com
+  - DOMAIN-SUFFIX,t.co
+
+  # === Facebook / Meta ===
+  - DOMAIN-KEYWORD,facebook
+  - DOMAIN-SUFFIX,fb.com
+  - DOMAIN-SUFFIX,fb.me
+  - DOMAIN-SUFFIX,fbcdn.net
+  - DOMAIN-SUFFIX,instagram.com
+  - DOMAIN-SUFFIX,cdninstagram.com
+  - DOMAIN-SUFFIX,threads.net
+  - DOMAIN-SUFFIX,whatsapp.com
+  - DOMAIN-SUFFIX,whatsapp.net
+
+  # === Telegram ===
+  - DOMAIN-SUFFIX,telegram.org
+  - DOMAIN-SUFFIX,telegram.me
+  - DOMAIN-SUFFIX,t.me
+  - DOMAIN-SUFFIX,tg.dev
+  - DOMAIN-SUFFIX,telegra.ph
+  - IP-CIDR,91.108.0.0/16
+  - IP-CIDR,109.239.140.0/24
+  - IP-CIDR,149.154.160.0/20
+
+  # === Discord ===
+  - DOMAIN-SUFFIX,discord.com
+  - DOMAIN-SUFFIX,discord.gg
+  - DOMAIN-SUFFIX,discordapp.com
+  - DOMAIN-SUFFIX,discordapp.net
+  - DOMAIN-SUFFIX,discord.media
+
+  # === Reddit ===
+  - DOMAIN-SUFFIX,reddit.com
+  - DOMAIN-SUFFIX,redd.it
+  - DOMAIN-SUFFIX,redditmedia.com
+  - DOMAIN-SUFFIX,redditstatic.com
+
+  # === Wikipedia ===
+  - DOMAIN-SUFFIX,wikipedia.org
+  - DOMAIN-SUFFIX,wikimedia.org
+  - DOMAIN-SUFFIX,wikidata.org
+
+  # === 流媒体 ===
+  # Netflix
+  - DOMAIN-KEYWORD,netflix
+  - DOMAIN-SUFFIX,nflximg.com
+  - DOMAIN-SUFFIX,nflxvideo.net
+
+  # Spotify
+  - DOMAIN-SUFFIX,spotify.com
+  - DOMAIN-SUFFIX,scdn.co
+  - DOMAIN-SUFFIX,spotifycdn.com
+
+  # Twitch
+  - DOMAIN-SUFFIX,twitch.tv
+  - DOMAIN-SUFFIX,ttvnw.net
+  - DOMAIN-SUFFIX,jtvnw.net
+
+  # === 开发者服务 ===
+  - DOMAIN-SUFFIX,stackoverflow.com
+  - DOMAIN-SUFFIX,stackexchange.com
+  - DOMAIN-SUFFIX,npmjs.com
+  - DOMAIN-SUFFIX,npmjs.org
+  - DOMAIN-SUFFIX,docker.com
+  - DOMAIN-SUFFIX,docker.io
+  - DOMAIN-SUFFIX,notion.so
+  - DOMAIN-SUFFIX,notion.com
+  - DOMAIN-SUFFIX,vercel.com
+  - DOMAIN-SUFFIX,vercel.app
+  - DOMAIN-SUFFIX,netlify.com
+  - DOMAIN-SUFFIX,netlify.app
+
+  # === 云服务 ===
+  - DOMAIN-SUFFIX,amazonaws.com
+  - DOMAIN-SUFFIX,cloudflare.com
+  - DOMAIN-SUFFIX,digitalocean.com
+  - DOMAIN-SUFFIX,linode.com
+  - DOMAIN-SUFFIX,vultr.com
+
+  # === 新闻媒体 ===
+  - DOMAIN-SUFFIX,bbc.com
+  - DOMAIN-SUFFIX,bbc.co.uk
+  - DOMAIN-SUFFIX,nytimes.com
+  - DOMAIN-SUFFIX,wsj.com
+  - DOMAIN-SUFFIX,reuters.com
+  - DOMAIN-SUFFIX,bloomberg.com
+  - DOMAIN-SUFFIX,cnn.com
+  - DOMAIN-SUFFIX,theguardian.com
+
+  # === OneDrive / Microsoft 国际服务 ===
+  - DOMAIN-SUFFIX,onedrive.com
+  - DOMAIN-SUFFIX,sharepoint.com
+  - DOMAIN-SUFFIX,office.com
+  - DOMAIN-SUFFIX,office365.com
+  - DOMAIN-SUFFIX,live.com
+  - DOMAIN-SUFFIX,outlook.com
+
+  # === 其他常用 ===
+  - DOMAIN-SUFFIX,medium.com
+  - DOMAIN-SUFFIX,quora.com
+  - DOMAIN-SUFFIX,pinterest.com
+  - DOMAIN-SUFFIX,tumblr.com
+  - DOMAIN-SUFFIX,dropbox.com
+  - DOMAIN-SUFFIX,mega.nz
+  - DOMAIN-SUFFIX,archive.org
+  - DOMAIN-SUFFIX,imgur.com
+  - DOMAIN-SUFFIX,v2ex.com
+  - DOMAIN-SUFFIX,pixiv.net
+  - DOMAIN-SUFFIX,pximg.net

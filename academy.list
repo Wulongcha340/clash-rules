@@ -1,0 +1,20 @@
+# 学术出版商规则集
+# 用于匹配学术相关服务的域名
+
+# 科学数据服务
+DOMAIN-KEYWORD,service.earthscope
+DOMAIN-KEYWORD,service.iris.edu
+
+# 学术出版商
+DOMAIN-SUFFIX,wiley.com
+DOMAIN-SUFFIX,sciencedirect.com
+DOMAIN-SUFFIX,springer.com
+DOMAIN-SUFFIX,nature.com
+DOMAIN-SUFFIX,ieee.org
+DOMAIN-SUFFIX,acm.org
+DOMAIN-SUFFIX,tandfonline.com
+DOMAIN-SUFFIX,sagepub.com
+DOMAIN-SUFFIX,oup.com
+DOMAIN-SUFFIX,science.org
+DOMAIN-SUFFIX,orcid.org
+DOMAIN-SUFFIX,researchgate.net

@@ -3,6 +3,9 @@
 # 注意：MATCH 兜底规则只能放在主配置 rules 最后一条
 
 payload:
+  # === qoder 服务 ===
+  - DOMAIN-KEYWORD,qoder
+
   # === Apple 地区限制服务 ===
   - DOMAIN-SUFFIX,apple.news
   - DOMAIN-SUFFIX,news.apple.com

@@ -6,10 +6,11 @@
 
 | 文件 | 用途 | behavior |
 |------|------|----------|
-| `ai-services.yaml` | AI 服务（OpenAI、Claude、Gemini 等） | classical |
-| `academy.yaml` | 学术出版商（Nature、IEEE、ACM 等） | classical |
-| `proxy.yaml` | 常见代理网站（Google、YouTube、GitHub 等） | classical |
-| `direct.yaml` | 直连规则（国内常用网站、局域网、Apple/微软中国区等） | classical |
+| `reject.yaml` | 广告拦截（小米电视、国内统计SDK、视频广告等） | classical |
+| `ai-services.yaml` | AI 服务（OpenAI、Claude、Gemini、Google 全流量等） | classical |
+| `academy.yaml` | 学术出版商（Nature、IEEE、ACM、Wiley 等） | classical |
+| `proxy.yaml` | 常见代理网站（YouTube、GitHub、Twitter、Telegram 等） | classical |
+| `direct.yaml` | 直连规则（国内网站、局域网、Apple/微软中国区等） | classical |
 
 ## 使用方法
 
@@ -17,40 +18,39 @@
 
 ```yaml
 rule-providers:
-  # 推荐：社区维护的广告规则
-  reject-ad:
+  # 我的规则集
+  my-reject:
     type: http
-    behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt"
-    path: ./ruleset/reject-ad.yaml
+    behavior: classical
+    url: "https://raw.githubusercontent.com/你的用户名/仓库名/main/clash-rules/reject.yaml"
+    path: ./ruleset/reject.yaml
     interval: 86400
 
-  # 我的规则集
   my-ai-services:
     type: http
     behavior: classical
-    url: "https://raw.githubusercontent.com/你的用户名/仓库名/main/my-rules/ai-services.yaml"
+    url: "https://raw.githubusercontent.com/你的用户名/仓库名/main/clash-rules/ai-services.yaml"
     path: ./ruleset/ai-services.yaml
     interval: 86400
 
   my-academy:
     type: http
     behavior: classical
-    url: "https://raw.githubusercontent.com/你的用户名/仓库名/main/my-rules/academy.yaml"
+    url: "https://raw.githubusercontent.com/你的用户名/仓库名/main/clash-rules/academy.yaml"
     path: ./ruleset/academy.yaml
     interval: 86400
 
   my-proxy:
     type: http
     behavior: classical
-    url: "https://raw.githubusercontent.com/你的用户名/仓库名/main/my-rules/proxy.yaml"
+    url: "https://raw.githubusercontent.com/你的用户名/仓库名/main/clash-rules/proxy.yaml"
     path: ./ruleset/proxy.yaml
     interval: 86400
 
   my-direct:
     type: http
     behavior: classical
-    url: "https://raw.githubusercontent.com/你的用户名/仓库名/main/my-rules/direct.yaml"
+    url: "https://raw.githubusercontent.com/你的用户名/仓库名/main/clash-rules/direct.yaml"
     path: ./ruleset/direct.yaml
     interval: 86400
 ```
@@ -74,9 +74,9 @@ rules:
   - IP-CIDR6,fe80::/10,DIRECT,no-resolve       # IPv6 链路本地
 
   # ============================================
-  # 第二优先级：广告拦截（使用社区规则）
+  # 第二优先级：广告拦截
   # ============================================
-  - RULE-SET,reject-ad,REJECT
+  - RULE-SET,my-reject,REJECT
 
   # ============================================
   # 第三优先级：AI 服务（优先保证代理）
@@ -94,7 +94,7 @@ rules:
   # 学术出版商
   - RULE-SET,my-academy,Academy
 
-  # 常见代理网站（Google、YouTube、GitHub 等）
+  # 常见代理网站（YouTube、GitHub、Twitter 等）
   - RULE-SET,my-proxy,Proxy
 
   # ============================================
@@ -108,32 +108,54 @@ rules:
   - MATCH,Proxy
 ```
 
-## 推荐的社区广告规则
+## 规则集详情
 
-| 项目 | URL | 说明 |
-|------|-----|------|
-| **Loyalsoldier** | `https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt` | 推荐，更新频繁 |
-| **ACL4SSR** | `https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list` | 经典项目 |
-| **blackmatrix7** | `https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Advertising/Advertising_Classical.yaml` | 规则最全 |
+### reject.yaml - 广告拦截
 
-### 使用 Loyalsoldier 广告规则示例
+- 电视/系统广告：小米、红米电视广告域名
+- 国内统计 SDK：百度统计、腾讯统计、友盟、神策等
+- 移动广告联盟：穿山甲、广点通等
+- 视频广告：爱奇艺、腾讯视频、优酷
+- 系统级追踪：Microsoft、Apple、华为遥测
 
-```yaml
-rule-providers:
-  reject-ad:
-    type: http
-    behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt"
-    path: ./ruleset/reject-ad.yaml
-    interval: 86400
+### ai-services.yaml - AI 服务
 
-  reject-ad-extra:
-    type: http
-    behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt"
-    path: ./ruleset/private.yaml
-    interval: 86400
-```
+- OpenAI / ChatGPT
+- Anthropic / Claude
+- Google 全流量（含 Gemini、DeepMind 等）
+- Microsoft Copilot
+- xAI / Grok
+- Perplexity
+- 图像/视频生成：Midjourney、Stability AI、Runway、Pika、Leonardo
+- AI 开发平台：HuggingFace、Replicate、Cohere
+- AI 对话：Poe、Character.AI、Pi.ai
+- AI 编程工具：Cursor、v0.dev、bolt.new
+- AI 生产力工具：Notion
+
+### academy.yaml - 学术出版商
+
+- 科学数据服务：EarthScope、IRIS
+- 出版商：Nature、Wiley、Springer、IEEE、ACM、Science 等
+- 学术社区：ResearchGate、ORCID
+
+### proxy.yaml - 常见代理网站
+
+- 视频：YouTube
+- 社交：Twitter/X、Facebook/Meta、Telegram、Discord、Reddit
+- 开发：GitHub、Stack Overflow、Docker、Vercel、Netlify
+- 流媒体：Netflix、Spotify、Twitch
+- 新闻：BBC、NYTimes、WSJ、Reuters、Bloomberg
+- 云服务：AWS、Cloudflare
+- 其他：Wikipedia、Medium、V2EX、Pixiv
+
+### direct.yaml - 直连规则
+
+- 局域网/本地域名
+- 中国域名后缀（.cn 等）
+- 国内大厂：腾讯、阿里、百度、字节、京东、网易、微博、B站
+- 国内服务：视频平台、电商、出行、外卖、知识社区
+- Apple/微软中国区服务
+- Steam 中国区 CDN
 
 ## 注意事项
 
@@ -156,10 +178,10 @@ proxy-groups:
       - DIRECT
 
   - name: AI Services
-    type: url-test
+    type: fallback
     url: http://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 100
+    interval: 60
+    timeout: 2000
     use:
       - YourProvider
     filter: "(?i)(?=.*(美国|US|新加坡|SG))(?=.*AI)"
@@ -169,4 +191,24 @@ proxy-groups:
     proxies:
       - DIRECT
       - Proxy
+```
+
+## 可选：使用社区广告规则
+
+如果觉得自维护的 reject.yaml 不够全面，可以替换为社区规则：
+
+| 项目 | URL | 说明 |
+|------|-----|------|
+| **Loyalsoldier** | `https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt` | 推荐，更新频繁 |
+| **ACL4SSR** | `https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list` | 经典项目 |
+| **blackmatrix7** | `https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Advertising/Advertising_Classical.yaml` | 规则最全 |
+
+```yaml
+rule-providers:
+  reject-ad:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt"
+    path: ./ruleset/reject-ad.yaml
+    interval: 86400
 ```

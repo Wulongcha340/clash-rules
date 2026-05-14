@@ -2,10 +2,6 @@
 # 用于匹配学术相关服务的域名
 
 payload:
-  # 科学数据服务
-  - DOMAIN-KEYWORD,service.earthscope
-  - DOMAIN-KEYWORD,service.iris.edu
-
   # 学术出版商
   - DOMAIN-SUFFIX,wiley.com
   - DOMAIN-SUFFIX,sciencedirect.com

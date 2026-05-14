@@ -6,6 +6,10 @@ payload:
   # === qoder 服务 ===
   - DOMAIN-KEYWORD,qoder
 
+  # 科学数据服务
+  - DOMAIN-KEYWORD,service.earthscope
+  - DOMAIN-KEYWORD,service.iris.edu
+
   # === Apple 地区限制服务 ===
   - DOMAIN-SUFFIX,apple.news
   - DOMAIN-SUFFIX,news.apple.com
